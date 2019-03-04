@@ -1,0 +1,52 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`USER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`USER` (
+  `USER_ID` INT NOT NULL AUTO_INCREMENT,
+  `FIRSTNAME` VARCHAR(45) NULL,
+  `LASTNAME` VARCHAR(45) NULL,
+  `EMAIL` VARCHAR(45) NULL,
+  `PHONE` VARCHAR(45) NULL,
+  `USERNAME` VARCHAR(45) NULL,
+  `PASSWORD` VARCHAR(45) NULL,
+  PRIMARY KEY (`USER_ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`POSTS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`POSTS` (
+  `POST_ID` INT NOT NULL AUTO_INCREMENT,
+  `TITLE` VARCHAR(45) NULL,
+  `CONTENT` VARCHAR(500) NULL,
+  `USER_USER_ID` INT NOT NULL,
+  PRIMARY KEY (`POST_ID`),
+  INDEX `fk_POSTS_USER_idx` (`USER_USER_ID` ASC),
+  CONSTRAINT `fk_POSTS_USER`
+    FOREIGN KEY (`USER_USER_ID`)
+    REFERENCES `mydb`.`USER` (`USER_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
