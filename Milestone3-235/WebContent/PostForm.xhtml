@@ -5,25 +5,19 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-	<title><ui:insert name="pageTitle">New Post Page</ui:insert></title>
+	<title><ui:insert name="pageTitle">Create A Post Page</ui:insert></title>
 </head>
 
 <body>
-<!-- Set layout and title for this page -->
-	<ui:composition template="/layouts/commonLayout.xhtml">
-	<ui:define name="title">Add a Post</ui:define>
-	<ui:define name="content">
 	<div align="center">
 	
 			<h:form>
-				Title: <h:inputText value="#{post.postName}" title= ""/> <h:message for="postName" /><br/>
-				Body: <h:inputTextarea rows="5" value="#{post.postText}" title= ""/> <h:message for="postText"/><br/>
-				Image: <h:inputText value="#{post.photo}" title= ""/> <h:message for="photo"/><br/>
-				<h:commandButton action="#{postController.onSubmit()}"  value="Submit"/><br/> <!-- manage bean is a method argument in faces context --> 
+				Title: <h:inputText value="#{post.title}" title= ""/> <h:message for="title" /><br/>
+				Content: <h:inputText value="#{post.content}" title= ""/> <h:message for="content"/><br/>
+				<h:commandButton action="#{postController.onSubmit}"  value="Submit"/><br/> <!-- must look up managed bean in faces context -->
+				<h:commandButton action="#{postController.onSubmit(post)}"  value="Submit"/><br/> <!-- manage bean is a method argument in faces context --> 
 			</h:form>
 			<h:messages /> 
 		</div>
-		</ui:define>
-	 </ui:composition>
 </body>
 </html>
