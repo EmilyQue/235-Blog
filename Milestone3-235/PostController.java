@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import beans.Post;
+import beans.NewPost;
 
 @ManagedBean
 @ViewScoped
@@ -13,7 +13,7 @@ public class PostController {
 	public String onSubmit() {
 		// gets the post values from the input form
 		FacesContext context = FacesContext.getCurrentInstance();
-		Post post = context.getApplication().evaluateExpressionGet(context, "#{post}", Post.class);
+		NewPost post = context.getApplication().evaluateExpressionGet(context, "#{post}", NewPost.class);
 
 		// outputs the post object data in the console
 		System.out.println("Username is " + post.getTitle());
@@ -25,7 +25,7 @@ public class PostController {
 		return "postSuccess.xhtml";
 	}
 
-	public String onSubmit(Post post) {
+	public String onSubmit(NewPost post) {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("post", post);
 
 		return "postSuccess.xhtml";
