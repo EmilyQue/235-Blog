@@ -7,9 +7,9 @@ import javax.validation.constraints.Size;
 
 @ManagedBean
 @ViewScoped
-public class Post {
+public class NewPost {
 
-	public Post() {
+	public NewPost() {
 		title = "";
 		content = "";
 
