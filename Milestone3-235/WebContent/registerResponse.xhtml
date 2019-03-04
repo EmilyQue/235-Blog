@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<title>Register Page</title>
+</h:head>
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">Registration Response Page</ui:define>
+	<ui:define name="content">
+	<div align="center">
+		<h3>Here is the information we received: </h3>
+		<p>First Name: #{user.firstName}</p>
+		<p>Last Name: #{user.lastName}</p>
+		<p>Email: #{user.email}</p>
+		<p>Phone #: #{user.phone}</p>
+		<p>Username: #{user.username}</p>
+		<p>Password: #{user.password}</p>
+		<br/>
+		<a href="LoginForm.xhtml">Login</a>
+	<h:form>
+	</h:form>
+	</div>
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

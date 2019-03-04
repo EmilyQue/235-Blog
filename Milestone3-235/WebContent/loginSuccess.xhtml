@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+	<title><ui:insert name="pageTitle">Posts</ui:insert></title>
+	<style>
+		.order-table {
+			border: 1px black solid;
+		}
+		
+		.order-table-odd {
+			background: #EEE;
+		}
+		
+		.order-table-header {
+			font-weight: 
+		}
+	</style>
+	</h:head>
+	
+<h:body>
+	<p>Success! You have logged in as #{user.username}</p>
+	<p>Here are a list of posts: </p>	
+	
+	<h:dataTable value="#{loginController.service.posts}" var="p" styleClass="order-table" headerClass="order-table-header" rowClasses="order-table-odd, order-table-even">
+		<h:column>
+			<f:facet name="header">Title</f:facet>
+			#{p.postName}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Body</f:facet>
+			#{p.postText}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Image</f:facet>
+			#{p.photo}
+		</h:column>
+		</h:dataTable>
+		<a href="PostForm.xhtml">Add a Post</a>
+</h:body>
+</html>

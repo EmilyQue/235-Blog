@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title><ui:insert name="pageTitle">JSF Login Page</ui:insert></title>
+</head>
+
+<body>
+<!-- Set layout and title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">Login Page</ui:define>
+	<ui:define name="content">
+	<div align="center">
+	
+			<h:form>
+				Username: <h:inputText value="#{user.username}" title= ""/> <h:message for="username"/><br/>
+				Password: <h:inputSecret value="#{user.password}" title= ""/> <h:message for="password"/><br/>
+				<h:commandButton action="#{loginController.onSubmit()}"  value="Submit"/><br/> <!-- manage bean is a method argument in faces context -->
+				Click <a href="RegisterForm.xhtml">here</a> to register
+			</h:form>
+			<h:messages /> 
+		</div>
+		</ui:define>
+		</ui:composition>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title><ui:insert name="pageTitle">New Post Page</ui:insert></title>
+</head>
+
+<body>
+<!-- Set layout and title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">Add a Post</ui:define>
+	<ui:define name="content">
+	<div align="center">
+	
+			<h:form>
+				Title: <h:inputText value="#{post.postName}" title= ""/> <h:message for="postName" /><br/>
+				Body: <h:inputTextarea rows="5" value="#{post.postText}" title= ""/> <h:message for="postText"/><br/>
+				Image: <h:inputText value="#{post.photo}" title= ""/> <h:message for="photo"/><br/>
+				<h:commandButton action="#{postController.onSubmit()}"  value="Submit"/><br/> <!-- manage bean is a method argument in faces context --> 
+			</h:form>
+			<h:messages /> 
+		</div>
+		</ui:define>
+	 </ui:composition>
+</body>
+</html>

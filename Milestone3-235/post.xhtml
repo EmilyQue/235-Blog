@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title><ui:insert name="pageTitle">Create A Post Page</ui:insert></title>
+</head>
+
+<body>
+	<div align="center">
+	
+			<h:form>
+				Title: <h:inputText value="#{post.title}" title= ""/> <h:message for="title" /><br/>
+				Content: <h:inputText value="#{post.content}" title= ""/> <h:message for="content"/><br/>
+				E-mail: <h:inputText value="#{user.email}" title= ""/> <h:message for="email"/><br/>
+				<h:commandButton action="#{postController.onSubmit}"  value="Submit"/><br/> <!-- must look up managed bean in faces context -->
+				<h:commandButton action="#{postController.onSubmit(post)}"  value="Submit"/><br/> <!-- manage bean is a method argument in faces context --> 
+			</h:form>
+			<h:messages /> 
+		</div>
+</body>
+</html>
